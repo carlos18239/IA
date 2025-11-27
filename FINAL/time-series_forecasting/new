@@ -1,0 +1,26 @@
+
+
+# 1) Leer tu archivo
+myData <- read_excel(
+  "RUTA/A/TU/ARCHIVO.xlsx",
+  sheet = "UPT",
+  col_names = FALSE
+)
+
+# 2) Convertir a lista de data.frames (agencias)
+dtList <- my.dt.fun(myData)
+
+# 3) Entrenar modelos (full serie 2002–2022 y test 2023)
+tsList_full <- my.forecast.fun(dtList)
+
+# 4) Graficar forecasts
+my.plot.fun(tsList_full)
+
+# 5) Graficar estacionalidad
+my.seasonal.fun(tsList_full)
+
+# 6) Big plots de las series
+my.bigplots.fun(tsList_full)
+
+# 7) Residuos
+res_full <- my.res.fun(tsList_full)
